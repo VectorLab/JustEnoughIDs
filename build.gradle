@@ -8,7 +8,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.1"
+        classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.2"
         classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.+'
         classpath "org.spongepowered:mixingradle:0.7-SNAPSHOT"
     }
@@ -98,8 +98,8 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 
-    annotationProcessor("org.spongepowered:mixin:0.8.3:processor")
-    compileJar("org.spongepowered:mixin:0.8.3") {
+    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+    compileJar("org.spongepowered:mixin:0.8.5") {
         exclude module: "asm-commons"
         exclude module: "asm-tree"
         exclude module: "launchwrapper"
@@ -116,7 +116,7 @@ dependencies {
     compileOnly fg.deobf( "curse.maven:GeographiCraft-76544:2497541" )
     compileOnly fg.deobf( "curse.maven:mystcraft-224599:2958490" )
     compileOnly fg.deobf( "curse.maven:HammerCore-247401:3366814" )
-    compileOnly fg.deobf( "curse.maven:AdvancedRocketry-236542:3015079" )
+    //compileOnly fg.deobf( "curse.maven:AdvancedRocketry-236542:3015079" )
     compileOnly fg.deobf( "curse.maven:LibVulpes-236541:3434864" )
     compileOnly fg.deobf( "curse.maven:worldedit-225608:2941712" )
     compileOnly fg.deobf( "curse.maven:journeymap-32274:2916002" )
@@ -131,6 +131,10 @@ dependencies {
     compileOnly fg.deobf( "curse.maven:baubles-227083:2518667" )
     compileOnly fg.deobf( "curse.maven:Patchouli-306770:3162874" )
     compileOnly fg.deobf( "curse.maven:bewitchment-285439:3256343" )
+
+    compileOnly fg.deobf( files( "libs/AdvancedRocketry-1.12.2-2.0.0-13-deobf.jar" ) )
+    compileOnly fg.deobf( files( "libs/lostcities-1.12-2.0.22-deobf.jar" ) )
+
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

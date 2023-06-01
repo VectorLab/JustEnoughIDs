@@ -14,12 +14,14 @@ import net.minecraft.potion.PotionType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeVoid;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.dimdev.jeid.network.MessageManager;
+import org.dimdev.jeid.other.modsupport.lostcities.LPrimerDriver;
 
 import java.util.Random;
 
@@ -106,6 +108,10 @@ public class JEID {
                 enchantRegistry.register(ench);
             }
         }
+        
+		if(Loader.isModLoaded("lostcities")) {
+			LPrimerDriver.init();
+		}
     }
 
     @Mod.EventHandler
