@@ -108,15 +108,14 @@ public class JEID {
                 enchantRegistry.register(ench);
             }
         }
-        
-		if(Loader.isModLoaded("lostcities")) {
-			LPrimerDriver.init();
-		}
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent e) {
         JEIDTransformer.REGISTRY = net.minecraftforge.registries.GameData.getWrapper(Potion.class);
+	if(Loader.isModLoaded("lostcities")) {
+		LPrimerDriver.init();
+	}
     }
 
     public static class PotionTest extends Potion {
