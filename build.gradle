@@ -133,7 +133,7 @@ dependencies {
     compileOnly fg.deobf( "curse.maven:bewitchment-285439:3256343" )
 
     compileOnly fg.deobf( files( "libs/AdvancedRocketry-1.12.2-2.0.0-13-deobf.jar" ) )
-    compileOnly fg.deobf( files( "libs/lostcities-1.12-2.0.22-deobf.jar" ) )
+    compileOnly fg.deobf( files( "libs/lostcities-1.12-2.0.23-deobf.jar" ) )
 
 }
 

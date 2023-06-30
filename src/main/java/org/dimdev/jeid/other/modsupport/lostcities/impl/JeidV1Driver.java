@@ -1,7 +1,9 @@
-package org.dimdev.jeid.other.modsupport.lostcities;
+package org.dimdev.jeid.other.modsupport.lostcities.impl;
 
 import java.util.Arrays;
 import java.util.Objects;
+
+import org.dimdev.jeid.other.modsupport.lostcities.ILostCitiesChunkPrimer;
 
 import mcjty.lostcities.dimensions.world.driver.IIndex;
 import mcjty.lostcities.dimensions.world.driver.IPrimerDriver;
@@ -9,7 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class JeidDriver implements IPrimerDriver {
+public class JeidV1Driver implements IPrimerDriver {
 	
 	private ChunkPrimer primero;
     private ILostCitiesChunkPrimer primerm;
@@ -103,7 +105,7 @@ public class JeidDriver implements IPrimerDriver {
 
     @Override
     public IPrimerDriver block(char c) {
-        primerm.getIntData()[current] = c;
+        primerm.getIntData()[current] = (int) c;
         return this;
     }
 
@@ -116,43 +118,43 @@ public class JeidDriver implements IPrimerDriver {
 
     @Override
     public IPrimerDriver add(char c) {
-    	primerm.getIntData()[current++] = c;
+    	primerm.getIntData()[current++] = (int) c;
         return this;
     }
 
     @Override
     public char getBlock() {
-        return (char) Math.min(255,primerm.getIntData()[current]);
+        return (char) primerm.getIntData()[current];
     }
 
     @Override
     public char getBlockDown() {
-        return (char) Math.min(255,primerm.getIntData()[current-1]);
+        return (char) primerm.getIntData()[current-1];
     }
 
     @Override
     public char getBlockEast() {
-        return (char) Math.min(255,primerm.getIntData()[current  + (1<<12)]);
+        return (char) primerm.getIntData()[current  + (1<<12)];
     }
 
     @Override
     public char getBlockWest() {
-        return (char) Math.min(255,primerm.getIntData()[current  - (1<<12)]);
+        return (char) primerm.getIntData()[current  - (1<<12)];
     }
 
     @Override
     public char getBlockSouth() {
-        return (char) Math.min(255,primerm.getIntData()[current  + (1<<8)]);
+        return (char) primerm.getIntData()[current  + (1<<8)];
     }
 
     @Override
     public char getBlockNorth() {
-        return (char) Math.min(255,primerm.getIntData()[current  - (1<<8)]);
+        return (char) primerm.getIntData()[current  - (1<<8)];
     }
 
     @Override
     public char getBlock(int x, int y, int z) {
-        return (char) Math.min(255,primerm.getIntData()[getBlockIndex(x, y, z)]);
+        return (char) primerm.getIntData()[getBlockIndex(x, y, z)];
     }
 
     @Override
@@ -187,7 +189,7 @@ public class JeidDriver implements IPrimerDriver {
 
     @Override
     public IPrimerDriver copy() {
-    	JeidDriver driver = new JeidDriver();
+    	JeidV1Driver driver = new JeidV1Driver();
         driver.current = current;
         driver.primero = primero;
         driver.primerm = primerm;

@@ -114,7 +114,7 @@ public class JEID {
     public void postInit(FMLPostInitializationEvent e) {
         JEIDTransformer.REGISTRY = net.minecraftforge.registries.GameData.getWrapper(Potion.class);
 	if(Loader.isModLoaded("lostcities")) {
-		LPrimerDriver.init();
+		LPrimerDriver.postInit();
 	}
     }
 
